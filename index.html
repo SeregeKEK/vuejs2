@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div class="product" v-for="item in products" :key="item.id">
+            <span class="item">{{item.name}} : {{item.price}}</span>
+        </div>
+        <button @click="desc">Сортировка</button>
+        <button @click="asc">по возростанию</button>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el: "#app",
+            data: {
+                products: [
+                    {
+                        id: "1",
+                        name: "bred",
+                        price: 50
+                    },
+
+                    {
+                        id: "2",
+                        name: "mayones",
+                        price: 150
+                    },
+
+                    {
+                        id: "3",
+                        name: "milk",
+                        price: 100
+                    },
+
+                    {
+                        id: "4",
+                        name: "chese",
+                        price: 200
+                    },
+                ]
+            },
+            methods: {
+                asc() {
+                    this.products.sort((a, b) => a.price - b.price);
+                },
+                desc() {
+                    this.products.sort((a, b) => b.price - a.price);
+                },
+            }
+        },
+        );
+    </script>
+</body>
+
+</html>
